@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.akhilraj.herome.R;
 
@@ -18,7 +19,7 @@ import com.example.akhilraj.herome.R;
  * Use the {@link MainFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MainFragment extends Fragment {
+public class MainFragment extends Fragment implements View.OnClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -29,6 +30,11 @@ public class MainFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+    private Button accidentButton;
+    private Button genericButton;
+    private Button bornButton;
+    private Button chooseButton;
 
     public MainFragment() {
         // Required empty public constructor
@@ -64,8 +70,47 @@ public class MainFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_main, container, false);
+
+        accidentButton = (Button) view.findViewById(R.id.accidentButton);
+        genericButton = (Button) view.findViewById(R.id.genericButton);
+        bornButton = (Button) view.findViewById(R.id.bornButton);
+        chooseButton = (Button) view.findViewById(R.id.chooseButton);
+
+        accidentButton.setOnClickListener(this);
+        genericButton.setOnClickListener(this);
+        bornButton.setOnClickListener(this);
+        chooseButton.setOnClickListener(this);
+
+        chooseButton.setEnabled(false);
+        chooseButton.getBackground().setAlpha(128);
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main, container, false);
+        return view;
+    }
+
+    @Override
+    public void onClick(View v) {
+        chooseButton.setEnabled(true);
+        chooseButton.getBackground().setAlpha(255);
+        Button button = (Button) v;
+        int leftDrawable = 0;
+        int rightDrawable = R.drawable.item_selected;
+
+        if (button == accidentButton) {
+            leftDrawable = R.drawable.lightning;
+        } else if (button == genericButton) {
+            leftDrawable = R.drawable.atomic;
+        } else if (button == bornButton) {
+            leftDrawable = R.drawable.rocket;
+        } else if (button == chooseButton) {
+            rightDrawable = 0;
+        }
+
+        accidentButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.lightning, 0, 0, 0);
+        genericButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.atomic, 0, 0, 0);
+        bornButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.rocket, 0, 0, 0);
+
+        button.setCompoundDrawablesWithIntrinsicBounds(leftDrawable, 0, rightDrawable, 0);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

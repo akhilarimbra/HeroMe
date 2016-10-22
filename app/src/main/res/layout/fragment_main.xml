@@ -44,7 +44,7 @@
             android:text="Came by Accident"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:id="@+id/button"
+            android:id="@+id/accidentButton"
             android:layout_gravity="center"
             android:background="@drawable/hero_button"
             tools:textColor="#FAC740"
@@ -53,7 +53,6 @@
             android:textStyle="normal|bold"
             android:layout_marginTop="15dp"
             android:drawableLeft="@drawable/lightning"
-            android:drawableRight="@drawable/item_selected"
             android:paddingRight="10dp"
             android:paddingLeft="10dp"
             android:textSize="18dp" />
@@ -62,7 +61,7 @@
             android:text="Generic Mutation"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:id="@+id/button1"
+            android:id="@+id/genericButton"
             android:layout_gravity="center"
             android:background="@drawable/hero_button"
             tools:textColor="#FAC740"
@@ -74,13 +73,13 @@
             android:paddingLeft="10dp"
             android:textSize="18dp"
             android:drawableLeft="@drawable/atomic"
-            android:drawableRight="@drawable/item_selected" />
+            android:textAlignment="center" />
 
         <Button
             android:text="Born with them"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:id="@+id/button2"
+            android:id="@+id/bornButton"
             android:layout_gravity="center"
             android:background="@drawable/hero_button"
             tools:textColor="#FAC740"
@@ -91,14 +90,13 @@
             android:drawableLeft="@drawable/rocket"
             android:paddingRight="10dp"
             android:paddingLeft="10dp"
-            android:textSize="18dp"
-            android:drawableRight="@drawable/item_selected" />
+            android:textSize="18dp" />
 
         <Button
             android:text="Choose Powers"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:id="@+id/button3"
+            android:id="@+id/chooseButton"
             android:layout_gravity="center"
             android:background="@drawable/hero_solid_button"
             tools:textColor="#10161D"
